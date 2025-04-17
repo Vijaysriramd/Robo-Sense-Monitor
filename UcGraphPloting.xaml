@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="Robo_Sense_Monitor.UcGraphPloting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Robo_Sense_Monitor"
+             mc:Ignorable="d"          
+             xmlns:converters="clr-namespace:Robo_Sense_Monitor.Converter"
+          xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+            
+             d:DesignHeight="550" d:DesignWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+            <converters:ImportParamsConverter x:Key="ImportParamsConverter"/>
+            <converters:ExportParamsConverter x:Key="ExportParamsConverter"/>
+            <converters:PlaybackParamsConverter x:Key="PlaybackParamsConverter"/>
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="Styles\StyleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10" x:Name="maingrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBlock Text="{Binding DeviceInformation}"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10" Grid.Row="1" Grid.Column="0" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Visibility="{Binding IsPlaybackMode, Converter={StaticResource BoolToVisConverter}}">
+
+            <!-- Import Button -->
+            <Button Width="30" Height="30" Background="Transparent" 
+            Command="{Binding ImportDataCommand}" ToolTip="Import Data">
+                <Image Source="pack://application:,,,/Icons/Import.png"/>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource ImportParamsConverter}">
+                        <Binding Path="SelectedDevice.DeviceId"/>
+                        <Binding Path="IsPlaybackMode"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <!-- Date/Time Range Selection -->
+            <DatePicker x:Name="StartDatePicker" Width="120" Margin="5"
+                SelectedDate="{Binding PlaybackStartDate, Mode=TwoWay}"/>
+
+            <xctk:TimePicker x:Name="StartTimePicker" Width="80" Margin="5" Format="ShortTime"
+                     Value="{Binding PlaybackStartTime, Mode=TwoWay}"/>
+
+            <DatePicker x:Name="EndDatePicker" Width="120" Margin="5"
+                SelectedDate="{Binding PlaybackEndDate, Mode=TwoWay}"/>
+
+            <xctk:TimePicker x:Name="EndTimePicker" Width="80" Margin="5" Format="ShortTime"
+                     Value="{Binding PlaybackEndTime, Mode=TwoWay}"/>
+
+            <!-- Play Button -->
+            <Button Content="Play" Style="{StaticResource SenseButton}" Width="60" Height="30"
+            Command="{Binding PlayDataCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource PlaybackParamsConverter}">
+                        <Binding ElementName="StartDatePicker" Path="SelectedDate"/>
+                        <Binding ElementName="StartTimePicker" Path="Value"/>
+                        <Binding ElementName="EndDatePicker" Path="SelectedDate"/>
+                        <Binding ElementName="EndTimePicker" Path="Value"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <!-- Export Button -->
+            <Button Content="Export" Style="{StaticResource SenseButton}" Width="60" Height="30"
+            Command="{Binding ExportDataCommand}" ToolTip="Export Data">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource ExportParamsConverter}">
+                        <Binding ElementName="StartDatePicker" Path="SelectedDate"/>
+                        <Binding ElementName="StartTimePicker" Path="Value"/>
+                        <Binding ElementName="EndDatePicker" Path="SelectedDate"/>
+                        <Binding ElementName="EndTimePicker" Path="Value"/>
+                        <Binding Path="SelectedDevice"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </StackPanel>
+
+        <!-- Graph Canvas -->
+        <Border Grid.Row="2"  Grid.Column="0" BorderBrush="LightGray" BorderThickness="1" CornerRadius="4">
+            <Canvas x:Name="GraphCanvas" Background="#D9E8F0" Margin="5,9,0,9" Width="574" HorizontalAlignment="Left" />
+            <!--<TabControl x:Name="DeviceTabs" Background="#D9E8F0" Margin="5,5,5,5" Width="590" Height="270" HorizontalAlignment="Left">
+
+            </TabControl>-->
+            <!--<local:UcPlotting></local:UcPlotting>-->
+        </Border>
+        <StackPanel Grid.Row="3" Grid.Column="0"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="ScrollLeftButton"  Style="{StaticResource SenseButtonplot}" Content="◀ Scroll Left"  Margin="5" Width="150" Command="{Binding ScrollLeftCommand}" 
+        CommandParameter="100"  />
+            <!--Click="ScrollLeft_Click"-->
+            <Button  x:Name="ScrollRightButton"  Style="{StaticResource SenseButtonplot}"  Content="Scroll Right ▶" Command="{Binding ScrollRightCommand}" 
+        CommandParameter="100" />
+            <Button  x:Name="ResumeLiveData"  Style="{StaticResource SenseButtonplot}"  Content="Resume Live Data"  Margin="5" Width="150" Command="{Binding ResumeLiveCommand}" 
+        CommandParameter="{Binding IsLiveMode}"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 10">
+                <!--<TextBlock Text="Zoom"    Style="{StaticResource SenseLabelPlot}"  FontWeight="Bold" />-->
+                <Slider x:Name="ZoomSlider"
+             Minimum="1" Maximum="10" 
+             Value="{Binding ZoomLevel, Mode=TwoWay}" 
+             TickFrequency="1" IsSnapToTickEnabled="True"  Width="100" />
+            </StackPanel>
+
+
+            <!--<TextBlock x:Name="TimeScaleLabel" Text="Time Scale: 1.0x" VerticalAlignment="Center" Margin="5" />-->
+        </StackPanel>
+        <!-- Stats -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3"  Grid.Column="0" Margin="0,10,0,0" HorizontalAlignment="Center" >
+            <TextBlock x:Name="MinText" FontWeight="Bold" FontSize="14"/>
+            <TextBlock x:Name="MaxText" FontWeight="Bold" FontSize="14"/>
+            <TextBlock x:Name="AvgText" FontWeight="Bold" FontSize="14"/>
+        </StackPanel>
+        <!--<local:UcCapturePlot Grid.Column="1"/>-->
+        <Grid Grid.Column="1" Grid.RowSpan="4" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="14*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="180*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <!--<Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Hide" Style="{StaticResource SenseButton}" Width="120" Height="30"/>-->
+            <!--Click="Hide_Click"-->
+
+
+
+
+
+
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <!--TextBlock with Actual Content-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblThreshold" Grid.Row="0"  Style="{StaticResource SenseLabel}" >Threshold Setup</Label>
+
+
+                <TextBox x:Name="ThresholdTextBox" Width="60" Margin="10,10,10,10" Height="25" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding ThresHoldValue, UpdateSourceTrigger=PropertyChanged}"  />
+                <Button Grid.Row="1"  Grid.Column="1"  Content="Update" Style="{StaticResource SenseButton}"  HorizontalAlignment="Left" Width="65" Height="30" Command="{Binding UpdateThresholdCommand}" 
+CommandParameter="{Binding Text, ElementName=ThresholdTextBox}"/>
+            </Grid>
+
+
+            <Canvas Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" x:Name="HistoCanvas" Height="250" Width="100" Background="#D9E8F0" Margin="49,5,49,46"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

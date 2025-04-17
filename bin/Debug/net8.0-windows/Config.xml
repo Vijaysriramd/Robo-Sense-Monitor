@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Devices>
+  <Device>
+    <DeviceID>1</DeviceID>
+    <DeviceName>TEST1</DeviceName>
+    <IPAddress />
+    <PortName>COM3</PortName>
+    <baudRate>9600</baudRate>
+    <DataBits>8</DataBits>
+    <Parity>0</Parity>
+    <StopBits>1</StopBits>
+  </Device>
+  <Device>
+    <DeviceID>2</DeviceID>
+    <DeviceName>TEST2</DeviceName>
+    <IPAddress />
+    <PortName>COM4</PortName>
+    <baudRate>9600</baudRate>
+    <DataBits>8</DataBits>
+    <Parity>0</Parity>
+    <StopBits>2</StopBits>
+  </Device>
+</Devices>

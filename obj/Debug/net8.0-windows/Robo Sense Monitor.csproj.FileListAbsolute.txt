@@ -1,0 +1,42 @@
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.exe
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.dll.config
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.deps.json
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.runtimeconfig.json
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Robo Sense Monitor.pdb
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Dapper.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\DotNetProjects.Wpf.Extended.Toolkit.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\RJCP.SerialPortStream.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.csproj.AssemblyReference.cache
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Styles\StyleResource.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\DeviceGraph.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\UcGraphPloting.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\UcPlotting.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\App.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor_MarkupCompile.cache
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor_MarkupCompile.lref
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\DeviceGraph.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\MainWindow.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Themes\Generic.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\UcGraphPloting.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\UcPlotting.baml
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.g.resources
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.GeneratedMSBuildEditorConfig.editorconfig
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.AssemblyInfoInputs.cache
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.AssemblyInfo.cs
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.csproj.CoreCompileInputs.cache
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sen.593E85A1.Up2Date
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\refint\Robo Sense Monitor.dll
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.pdb
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\Robo Sense Monitor.genruntimeconfig.cache
+C:\vijay\Tools\Robo Sense Monitor\Robo Sense Monitor\obj\Debug\net8.0-windows\ref\Robo Sense Monitor.dll

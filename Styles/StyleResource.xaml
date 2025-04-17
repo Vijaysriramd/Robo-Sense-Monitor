@@ -1,0 +1,250 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Region styling-->
+    <!--Label-->
+
+    <Style  x:Key="SenseButtonplot" TargetType="Button">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Padding" Value="10,0,10,0"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="3,3,3,3" Background="DarkGray"  BorderThickness="0,1,1,0" >
+                        <!--672A53-->
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style  x:Key="SenseLabelPlot" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Foreground" Value="Gray"/>
+    </Style>
+    
+    <Style  x:Key="SenseLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Height" Value="30"/>
+    </Style>
+    <Style x:Key="ConnectionstatusLabel"  TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Height" Value="30"/>
+        <Style.Triggers>
+            <Trigger Property="Content" Value="Connected">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="LightGreen"/>
+            </Trigger>
+            <Trigger Property="Content" Value="Not Connected">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Button-->
+    <Style  x:Key="SenseButton" TargetType="Button">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Padding" Value="10,0,10,0"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="3,3,3,3" Background="#cf2e2e"  BorderThickness="0,1,1,0" >
+                        <!--672A53-->
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Checkbox-->
+    <Style x:Key="SenseCheckBox" TargetType="CheckBox">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" Value="#abb8c3"/>
+        <!--FFF0AA-->
+    </Style>
+
+    <!--Radio Button-->
+    <Style x:Key="SenseRadioButton" TargetType="RadioButton">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" Value="#abb8c3"/>
+        <!--FFF0AA-->
+    </Style>
+
+    <!--TextBox-->
+    <Style x:Key="SenseTextBox" TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Background" Value="#abb8c3"/>
+        <!--FFF0AA-->
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="TextAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="3,3,3,3" Background="#abb8c3" Margin="3,3,3,3">
+                        <!--#FFF0AA-->
+                        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border CornerRadius="3" Background="#abb8c3" Margin="3,3,3,3">
+                        <!--FFF0AA-->
+                        <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!--Region column defining for grid-->
+    <DataTemplate x:Key="columnDeviceId">
+        <!--<Label Name="lblDeviceId" Style="{StaticResource SenseLabel}"  Content="{Binding DeviceId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />-->
+        <TextBox Name="txtDevicID" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="DeviceId"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnDeviceName">
+        <TextBox Name="txtDeviceNAme" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="DeviceName"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnPortName">
+        <TextBox Name="txtPortNo" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="PortName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnbaudRate">
+        <TextBox Name="txtbaudRate" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="baudRate" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnDataBits">
+        <TextBox Name="txtDatabits" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="DataBits" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnParity">
+        <TextBox Name="txtParity" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="Parity" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="columnStopBits">
+        <TextBox Name="txtStopBits" Style="{StaticResource SenseTextBox}">
+            <TextBox.Text>
+                <Binding Path="StopBits" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+    </DataTemplate>
+    <!--<DataTemplate x:Key="columnDeployStatus">
+      <ProgressBar Name="pgDeployStatus"  Background="#FFE366" Foreground="#672A53" Value="{Binding deploy_perc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100"/>
+  </DataTemplate>-->
+
+    <DataTemplate x:Key="columnConnectionStatus">
+        <Label Name="lblConnectionStatus">
+            <Label.Style>
+                <Style TargetType="Label" BasedOn="{StaticResource ConnectionstatusLabel}">
+                    <Setter Property="Content" Value="Waiting"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsListening}" Value="True">
+                            <Setter Property="Content" Value="Listening"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnDeleteRow">
+        <Button Name="btnDelete"  Width="30" Height="30"  Background="Transparent" Command="{Binding DeleteComman}" CommandParameter="{Binding SelectedDevice}">
+            <StackPanel>
+                <!--<Image  Source="/Icons/delete.svg"/>-->
+                <Image Source="pack://application:,,,/Icons/delete.png"/>
+            </StackPanel>
+        </Button>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnInformation">
+        <Button Name="btnInformation" Width="30" Height="30" Background="Transparent"  Command="{Binding DataContext.InfoCommand,  RelativeSource={RelativeSource AncestorType=DataGrid}}"  CommandParameter="{Binding SelectedItem, ElementName=maingrid}"  >
+            <StackPanel>
+                <!--<Image  Source="/Icons/information.svg"/>-->
+                <Image Source="pack://application:,,,/Icons/information.png"/>
+            </StackPanel>
+        </Button>
+    </DataTemplate>
+    <DataTemplate x:Key="columnPlots">
+        <Button Name="btnShoePlots" Width="30" Height="30" Background="Transparent"   Command="{Binding DataContext.ShowPlotsCommand,  RelativeSource={RelativeSource AncestorType=DataGrid}}"  CommandParameter="{Binding SelectedItem, ElementName=maingrid}" >
+            <StackPanel>
+
+                <Image Source="pack://application:,,,/Icons/line.png"/>
+            </StackPanel>
+        </Button>
+    </DataTemplate>
+
+    <DataTemplate x:Key="columnPlayback">
+        <Button Name="btnPlayback" Width="30" Height="30" Background="Transparent"     Command="{Binding DataContext.PlaybackCommand,  RelativeSource={RelativeSource AncestorType=DataGrid}}"  CommandParameter="{Binding SelectedItem, ElementName=maingrid}">
+            <StackPanel>
+                <!--<Image  Source="/Icons/line.svg"/>-->
+                <Image Source="pack://application:,,,/Icons/play.png"/>
+            </StackPanel>
+        </Button>
+    </DataTemplate>
+</ResourceDictionary>
